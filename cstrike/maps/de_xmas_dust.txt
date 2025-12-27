@@ -1,0 +1,25 @@
+Dust - Christmas Edition - Bomb/Defuse
+by Freimaurer
+based on the original de_dust by DaveJ 
+textures by [RIG] Jerek and 3DMike
+
+
+North Pole, 23th of December
+Santa lost some of his presents he had to deliver the next day.
+He sends his Helper Forces to safe them.
+But the evil Grinch also sends his men in order to destroy these presents
+to prevent a happy christmas.
+
+Santas Helper Forces: 
+Safe the presents and prevent the Grinch destoying them.
+You are allowed to use Santa's Sleigh in order to complete your mission.
+
+Grinch Forces:
+Destroy these presents at all cost.
+This year there won't be a happy christmas for those kids.
+Hehehehe.
+
+Other Notes:
+There are rumors about Santas radio hidden somewhere.
+
+(Press FIRE to continue)

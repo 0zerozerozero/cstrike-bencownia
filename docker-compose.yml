@@ -1,0 +1,23 @@
+services:
+  cstrike-bencownia:
+    image: ghcr.io/bordeux/cstrike-server:latest
+    container_name: cstrike-bencownia
+    platform: linux/amd64
+    restart: unless-stopped
+    ports:
+      - "27015:27015/udp"
+      - "27015:27015/tcp"
+      - "8080:8080/tcp"
+    volumes:
+      - ./cstrike:/opt/steam/hlds/cstrike_overwrites
+      - ./cstrike_workdir:/opt/steam/hlds/cstrike
+    environment:
+      - CPU_MHZ=2400 # enable this on MacOS M chips
+      - SERVER_PORT=27015
+      - SERVER_MAP=de_dust2
+      - SERVER_LAN=0
+      - SERVER_MAX_PLAYERS=20
+      - SERVER_GAME=cstrike
+      - SERVER_PASSWORD=change-me
+    stdin_open: true
+    tty: true

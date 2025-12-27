@@ -1,0 +1,50 @@
+fun_allinone
+
+by DedeHai
+
+Shotgunmap by GothicFire
+(modified by DedeHai)
+
+
+dedehai@freesurf.ch            
+ICQ# 31162912
+
+Welcome 
+
+*****PLEASE READ CAREFULLY!!! 
+(including the very bottom, it has instructions about the pre-game.)*****
+
+Terrorist and Counter-Terrorist: 
+
+There are 6 maps in here.
+
+Basically, you just kill the opposing team using whatever the map supplies you with.
+
+The Maps are: 
+
+grenades tennis.
+	throw grenades to kill them. he_grenades only. (Knife is useless)
+
+shotgun map.
+	shotgun only. (shoot the lights to make it more interesting)
+
+Machine Gun Map.
+	Machine gun only. kill each other using machine guns.
+
+knife map.
+	knife kills only. NO OTHER WEAPONS
+
+Sniper map.
+	Magnum Sniper weapon only.
+
+Handgun map.
+	Choose your handgun and play.
+
+Before you choose a map, you are in a glass wall. 
+In order to get out, either one of the people in the game must go through the 1-person out
+thing (press "USE" key on the button) and then choose one of the six maps by pressing 
+the "USE" key on the control. After that, the 2 side mirror wall will open up for people to go out.
+BEWARNED!!! You have 20 seconds to get out of the glass room before you die (get electro-shocked).
+So I suggest you choose a map and open the door to the map ASAP once you get out of the glass room. 
+Also, there is no weapon used in the glass room. So the only thing that can kill you 
+is the electric-shock. 

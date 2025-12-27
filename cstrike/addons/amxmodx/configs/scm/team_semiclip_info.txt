@@ -1,0 +1,68 @@
+// ---------------------------------
+// -------- Counter-Strike ---------
+// --------------- & ---------------
+// -------- Condition Zero ---------
+// ---------------------------------
+//   Team Semiclip 3.1.0 Info File
+// ---------------------------------
+
+Przyciski triggerów
+---------------
+IN_ATTACK = 1
+IN_JUMP = 2
+IN_DUCK = 4
+IN_FORWARD = 8
+IN_BACK = 16
+IN_USE = 32
+IN_CANCEL = 64
+IN_LEFT = 128
+IN_RIGHT = 256
+IN_MOVELEFT = 512
+IN_MOVERIGHT = 1024
+IN_ATTACK2 = 2048
+IN_RUN = 4096
+IN_RELOAD = 8192
+IN_ALT1 = 16384
+IN_SCORE = 32768
+-----------------------------
+semiclip_button_trigger = ???
+-----------------------------
+IN_USE + IN_RELOAD = 8224
+IN_DUCK + IN_USE + IN_JUMP = 38
+
+
+Prioryter dla semiclip_block_team and semiclip_button
+---------------------------------------------------
+semiclip_block_team 0 -> oba teamy maj¹ automatyczny semiclip
+
+semiclip_button 0 -> ka¿da wy¿sza wartoœæ jak 0 jest (useless)bezu¿yteczna! <-
+semiclip_button 1 -> useless! oba teamy maj¹ automatyczny semiclip
+semiclip_button 2 -> useless! oba teamy maj¹ automatyczny semiclip
+semiclip_button 3 -> useless! oba teamy maj¹ automatyczny semiclip
+
+
+--------------------------------------------------------------------------------------------------------------------
+semiclip_block_team 1 -> ct ma automatyczny semiclip, tt nie ma
+
+semiclip_button 0 -> terrors nie ma semiclipu <-
+semiclip_button 1 -> terrors maj¹ semiclip na przycisk <-
+semiclip_button 2 -> terrors nie maj¹ semiklipu ale useless! ct ma automatyczny semiclip
+semiclip_button 3 -> terrors maj¹ semiclipu na przycisk ale useless! ct ma automatyczny semiclip
+
+
+--------------------------------------------------------------------------------------------------------------------
+semiclip_block_team 2 -> terror ma automatyczny semiclip, ct go nie ma
+
+semiclip_button 0 -> cts nie ma semiclipu <-
+semiclip_button 1 -> cts nie ma semiclipu ale useless! terror ma automatyczny
+semiclip_button 2 -> cts ma semiclip na przycisk <-
+semiclip_button 3 -> cts ma semiclip na przycisk ale useless! terro ma automatyczny semiclip
+
+
+--------------------------------------------------------------------------------------------------------------------
+semiclip_block_team 3 -> tt i ct nie maja automatycznego semiclipu
+
+semiclip_button 0 -> oba teamy nie maj¹ ¿adnego semiclipu
+semiclip_button 1 -> terrors ma semiclip na przycisk, cts nie ma semiclipu
+semiclip_button 2 -> cts ma semiclip na przycisk, terrors nie maj¹ semiclipu
+semiclip_button 3 -> oba teamy maj¹ semiclip na przycisk

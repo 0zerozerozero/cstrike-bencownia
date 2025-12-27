@@ -1,0 +1,14 @@
+// overview description file for de_train_winter.bsp
+
+global 
+{
+	ZOOM	1.58
+	ORIGIN	32 	156	-361
+	ROTATED	1
+}
+
+layer 
+{
+	IMAGE	"overviews/de_train_winter.bmp"
+	HEIGHT	-361
+}

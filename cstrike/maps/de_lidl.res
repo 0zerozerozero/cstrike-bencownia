@@ -1,0 +1,14 @@
+cs_office.wad
+decals.wad
+gfx/env/backalleybk.tga
+gfx/env/backalleydn.tga
+gfx/env/backalleyft.tga
+gfx/env/backalleylf.tga
+gfx/env/backalleyrt.tga
+gfx/env/backalleyup.tga
+halflife.wad
+sound/ambience/burning1.wav
+sound/ambience/rua1.wav
+sound/ambience/truck1.wav
+sound/ambience/wind1.wav
+sprites/fire.spr

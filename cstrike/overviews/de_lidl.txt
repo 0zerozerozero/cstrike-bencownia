@@ -1,0 +1,14 @@
+// overview description file for de_lidl.bsp
+
+global 
+{
+	ZOOM	1.46
+	ORIGIN	579.63	989.44	128
+	ROTATED	0
+}
+
+layer 
+{
+	IMAGE	"overviews/de_lidl.tga"
+	HEIGHT	-257
+}
