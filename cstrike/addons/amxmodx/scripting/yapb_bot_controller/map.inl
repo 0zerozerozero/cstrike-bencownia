@@ -18,7 +18,11 @@ public TASK_SetBotsNumber()
 
 	g_EstimateBotsNumber = teamSpawnsBots[g_EstimateTeamSpawns-1][1]; 
 	
-	g_TotalBotsNumber = g_EstimateBotsNumber * 2 
+	g_TotalBotsNumber = g_EstimateBotsNumber * 2
+
+	if(g_TotalBotsNumber > 6) {
+	    g_TotalBotsNumber = 6
+	}
 	
 	if (get_pcvar_num(g_cvar_force_bots)) { 
 		server_cmd("amx_cvar yb_quota %d",g_TotalBotsNumber);
@@ -34,8 +38,8 @@ public TASK_ForceBot()
 	}
 		
 	if (get_pcvar_num(g_cvar_force_bots)) { 
-	server_cmd("amx_cvar yb_quota %d",g_TotalBotsNumber);
-	server_cmd("amx_cvar sv_unlag 1");
+        server_cmd("amx_cvar yb_quota %d",g_TotalBotsNumber);
+        server_cmd("amx_cvar sv_unlag 1");
 	}
 }
 
@@ -61,8 +65,8 @@ public FWD_PlayerSpawn(id)
         new bot_task_id = id + TASK_BOT_STUCK_OFFSET;
 
         remove_task(bot_task_id);
-
-        set_task(BOT_STUCK_TIME, "TASK_Bot_Stuck", bot_task_id);
+        // this not works so well
+        // set_task(BOT_STUCK_TIME, "TASK_Bot_Stuck", bot_task_id);
     }
 }
 

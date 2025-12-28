@@ -81,36 +81,17 @@ public TASK_CheckCamping() {
 				g = 255;
 				b = 0;
 			}
-				
-			new Message[256];
-			
-			if(Meter[id] >= 99) 
-			{
-				formatex(Message,sizeof(Message)-1,"| Spectators can replace you |");
-				set_hudmessage(r, g, b, X_POS, Y_POS, 0, 0.1, 1.0, 0.1, 0.1, -1);
-				ShowSyncHudMsg(id, g_SyncObj, Message);
-			} 
-			else if(Meter[id] > 0) 
-			{ 
-					formatex(Message,sizeof(Message)-1,"| inactivity: %d |", Meter[id]);
-					
-					set_hudmessage(r, g, b, X_POS, Y_POS, 0, 0.1, 1.0, 0.1, 0.1, -1)
-					ShowSyncHudMsg(id, g_SyncObj, Message);
-			}
-			
 		}
 
 		else if(!is_user_alive(Players[index]) && is_user_connected(Players[index])) 
 		{
 				
 			new Spectator = Players[index];
-
 			new iTarget = entity_get_int( Spectator, EV_INT_iuser2 );
 			
 			
 			if ( SHARED_ValidPlayer( iTarget ) && iTarget != Spectator )
 			{
-			
 				new Message[256];
 				if(is_user_bot(iTarget) && get_user_team(iTarget) == get_user_team(Spectator) ) 
 				{
@@ -120,28 +101,9 @@ public TASK_CheckCamping() {
 				{ 
 					formatex(Message,sizeof(Message)-1,"| Press R to replace this AFK player |");
 				}
-				else if(Meter[iTarget] > 0) 
-				{
-					formatex(Message,sizeof(Message)-1,"| inactivity: %d |", Meter[iTarget]);
-				}
-				else 
-				{
-					formatex(Message,sizeof(Message)-1,"%s",ANNOUNCE_IN_HUD);
-				}
-			
-				set_hudmessage(R_HUD, G_HUD, B_HUD, X_POS, Y_POS, 0, 0.1, 1.0, 0.1, 0.1, -1)
-				ShowSyncHudMsg(Spectator, g_SyncObj, Message);
-
-			}
-		
-			else
-			{ 
-				new Message[256];
-				formatex(Message,sizeof(Message)-1,"| Good Luck and Have Fun |");
 				set_hudmessage(R_HUD, G_HUD, B_HUD, X_POS, Y_POS, 0, 0.1, 1.0, 0.1, 0.1, -1)
 				ShowSyncHudMsg(Spectator, g_SyncObj, Message);
 			}
-			
 		} 		
 	}
 }

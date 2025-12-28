@@ -1,16 +1,3 @@
-/* 
-AMX Mod X 1.9.0.5294 (http://www.amxmodx.org)
-Compiled: Dec  3 2021 15:54:56
-Built from: https://github.com/alliedmodders/amxmodx/commit/363871a
-Build ID: 5294:363871a
-Core mode: JIT+ASM32
-[20] ReAPI             RUN   -    reapi_amxx_i386.so          v5.26.0.338-dev  pl2  ANY   Never
-Exe version 1.1.2.7/Stdio (cstrike)
-ReHLDS version: 3.14.0.857-dev
-Build date: 19:52:21 Mar 27 2025 (4002)
-Build from: https://github.com/rehlds/ReHLDS/commit/89958d3
-*/
-
 public CMD_BotShowIP(id) {
 
     if(get_pcvar_num(g_cvar_adminonly) && !is_user_admin(id))

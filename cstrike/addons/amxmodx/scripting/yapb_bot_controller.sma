@@ -10,7 +10,6 @@
 #include <reapi>
 
 #include "yapb_bot_controller/constants.inl"
-#include "yapb_bot_controller/license.inl"
 #include "yapb_bot_controller/transfer.inl"
 
 #include "yapb_bot_controller/configs.inl"
@@ -83,10 +82,7 @@ public plugin_init()
 	
 	set_task(180.0, "TASK_ForceBot", 0, "", 0, "b"); 
 	
-	set_task(5.0, "TASK_SetBotsNumber"); 
-	
-	// TASK_LICENSE_ALWAYS();
-   
+	set_task(5.0, "TASK_SetBotsNumber");
 }
 
 public client_putinserver(id)

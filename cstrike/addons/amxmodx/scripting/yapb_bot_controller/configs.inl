@@ -3,8 +3,7 @@
 #define BOT_STUCK_TIME 5.0 							
 #define BOT_STUCK_RADIUS 64.0 						
 
-#define ANNOUNCE_IN_HUD "| quick support and admin request on daeva.ro |^n| join chat and voice on discord.daeva.ro |"  
-  			
+
 new teamSpawnsBots[16][2] = {
     { 1 , 1 },
     { 2 , 1 },
