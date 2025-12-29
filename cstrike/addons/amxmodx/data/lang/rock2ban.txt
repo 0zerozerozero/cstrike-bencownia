@@ -1,0 +1,27 @@
+[en]
+VOTEBAN_NEEDX = !n This command is unavailable! Need at least !t%d!n players.
+VOTEBAN_VOTED = voted
+VOTEBAN_VOTE = !n Player !t%s!n votebanned !t%s!n!
+VOTEBAN_UNVOTE = !n Player !t%s!n canceled voteban !t%s!n!
+VOTEBAN_BAN = !n Player !t%s!n has been banned for !g%d!n min. due to voteban!
+VOTEBAN_SET = * You have votebanned this player *
+VOTEBAN_CLEAR = * You have canceled voteban for this player *
+VOTEBAN_LIMIT = * Too much votebans, max. %d! *
+VOTEBAN_MENU = \rVOTEBAN \yMenu
+VOTEBAN_BACK = Back
+VOTEBAN_NEXT = Next
+VOTEBAN_EXIT = Exit
+
+[pl]
+VOTEBAN_NEEDX = !n Komenda niedostepna.! Potrzebne jest co najmniej !t%d!n graczy.
+VOTEBAN_VOTED = Glosowalem
+VOTEBAN_VOTE = !n Gracz !t%s!n Zaglosowal na !t%s!n!
+VOTEBAN_UNVOTE = !n Gracz !t%s!n anulowano glos !t%s!n!
+VOTEBAN_BAN = !n Gracz !t%s!n został zbanowany przez !g%d!n min. z powodu votebana!
+VOTEBAN_SET = * Masz glosa na tego gracza *
+VOTEBAN_CLEAR = * Anulowales glos na tego gracza *
+VOTEBAN_LIMIT = * Limit glosow osiagniety, max. %d! *
+VOTEBAN_MENU = \rVOTEBAN \yMenu
+VOTEBAN_BACK = Cofnij
+VOTEBAN_NEXT = Nastepna
+VOTEBAN_EXIT = Wyjdz
