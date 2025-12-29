@@ -24,6 +24,7 @@ services:
       - SERVER_MAX_PLAYERS=${SERVER_MAX_PLAYERS:-32}
       - SERVER_GAME=cstrike
       - SERVER_PASSWORD=${RCON_PASSWORD:-change-me}
+      - HLTV_PASSWORD=${HLTV_PASSWORD:-change-me}
       - DB_HOST=cstrike-mysql
       - DB_PORT=3306
       - DB_NAME=cstrike

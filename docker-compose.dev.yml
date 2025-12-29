@@ -35,6 +35,8 @@ services:
     ports:
       - "27015:27015/udp"
       - "27015:27015/tcp"
+      - "27020:27020/udp"
+      - "27020:27020/tcp"
       - "8080:8080/tcp"
     volumes:
       - ./cstrike:/opt/steam/hlds/cstrike_overwrites
@@ -47,12 +49,14 @@ services:
       - SERVER_MAX_PLAYERS=20
       - SERVER_GAME=cstrike
       - SERVER_PASSWORD=change-me
+      - HLTV_PASSWORD=change-me
       - DB_HOST=cstrike-mysql
       - DB_PORT=3306
       - DB_NAME=cstrike
       - DB_USER=root
       - DB_PASSWORD=change-me
       - SERVER_ENVIRONMENT=dev
+      - HLTV_ENABLE=1
     stdin_open: true
     tty: true
     depends_on:
