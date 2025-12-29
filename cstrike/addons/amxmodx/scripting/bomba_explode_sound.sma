@@ -105,7 +105,7 @@ public dispTime() {
       set_hudmessage(150, 0, 0, -1.0, 0.80, 0, 1.0, 1.0, 0.01, 0.01, -1);
     }
 
-    ShowSyncHudMsg(0, g_msgsync, "C4: %d", g_c4timer);
+    ShowSyncHudMsg(0, g_msgsync, "Bomba wyjebie za: %d", g_c4timer);
 
     --g_c4timer;
   }
