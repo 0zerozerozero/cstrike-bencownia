@@ -18,22 +18,23 @@ This project provides a fully configured Counter-Strike 1.6 dedicated server wit
 ## Quick Start
 
 1. Clone the repository
-2. Update the server password in `docker-compose.yml` (change `SERVER_PASSWORD`)
-3. Start the server:
+2. Update the server password in `docker-compose.dev.yml` (change `SERVER_PASSWORD`)
+3. Start the development environment:
 
 ```bash
-docker-compose up -d
+docker-compose -f docker-compose.dev.yml up -d
 ```
 
 The server will be available on:
 - Game Port: `27015` (UDP/TCP)
 - Web Admin: `8080` (TCP)
+- phpMyAdmin: `http://127.0.0.1:8081/`
 
 ## Configuration
 
 ### Server Settings
 
-Edit `docker-compose.yml` to customize:
+Edit `docker-compose.dev.yml` to customize:
 - `SERVER_PORT`: Server port (default: 27015)
 - `SERVER_MAP`: Starting map (default: de_dust2)
 - `SERVER_MAX_PLAYERS`: Maximum players (default: 20)
@@ -60,6 +61,9 @@ The server includes AMX Mod X with:
 
 ```
 cstrike-bencownia/
+├── .docker/                    # Docker volumes and data
+│   ├── cstrike_workdir/       # Server working directory (volume)
+│   └── mysql_data/            # MySQL database data (development)
 ├── cstrike/                    # Server files and customizations
 │   ├── addons/
 │   │   └── amxmodx/           # AMX Mod X plugins and configs
@@ -72,8 +76,7 @@ cstrike-bencownia/
 │   ├── sprites/               # Custom sprites
 │   ├── gfx/                   # Graphics and skyboxes
 │   └── overviews/             # Map overviews
-├── cstrike_workdir/           # Server working directory (volume)
-├── docker-compose.yml         # Docker Compose configuration
+├── docker-compose.dev.yml     # Docker Compose development configuration
 └── Dockerfile                 # Docker build configuration
 ```
 
@@ -81,22 +84,22 @@ cstrike-bencownia/
 
 ### Start the server
 ```bash
-docker-compose up -d
+docker-compose -f docker-compose.dev.yml up -d
 ```
 
 ### View logs
 ```bash
-docker-compose logs -f
+docker-compose -f docker-compose.dev.yml logs -f
 ```
 
 ### Stop the server
 ```bash
-docker-compose down
+docker-compose -f docker-compose.dev.yml down
 ```
 
 ### Restart the server
 ```bash
-docker-compose restart
+docker-compose -f docker-compose.dev.yml restart
 ```
 
 ## Connecting to the Server
@@ -111,7 +114,9 @@ In Counter-Strike 1.6:
 - The server runs on linux/amd64 platform
 - For macOS M-series chips, CPU_MHZ is set to 2400
 - Custom content is mounted from `./cstrike` to `/opt/steam/hlds/cstrike_overwrites`
-- Server working directory is persisted in `./cstrike_workdir`
+- Server working directory is persisted in `./.docker/cstrike_workdir`
+- MySQL database data is stored in `./.docker/mysql_data` (development only)
+- Access phpMyAdmin at `http://127.0.0.1:8081/` for database management
 
 ## Base Image
 

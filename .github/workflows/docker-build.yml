@@ -6,6 +6,7 @@ on:
       - '**'
   schedule:
     - cron: '0 0 * * 0'  # Weekly on Sunday at 00:00 UTC
+  workflow_dispatch:  # Enable manual deployment
 
 env:
   REGISTRY: ghcr.io
@@ -40,6 +41,14 @@ jobs:
           tags: |
             type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' || github.event_name == 'schedule' }}
             type=ref,event=branch,enable=${{ github.ref != 'refs/heads/main' && github.event_name != 'schedule' }},suffix=,value={{branch}}
+            type=raw,value={{branch}}-${{ github.run_number }}
+
+      - name: Set deployment tag
+        id: deploy-tag
+        run: |
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          BRANCH_NAME=${BRANCH_NAME//\//-}
+          echo "tag=${BRANCH_NAME}-${{ github.run_number }}" >> $GITHUB_OUTPUT
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
@@ -50,3 +59,25 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Determine stack name
+        id: stack
+        run: |
+          if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+            echo "name=bencownia-production" >> $GITHUB_OUTPUT
+          else
+            echo "name=bencownia-staging" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 'Portainer Deploy'
+        uses: cssnr/portainer-stack-deploy-action@v1
+        with:
+          token: ${{ secrets.PORTAINER_TOKEN }}
+          url: ${{ secrets.PORTAINER_URL }}
+          name: ${{ steps.stack.outputs.name }}
+          file: docker-compose.stack.yml
+          type: file
+          standalone: true
+          env_data: |
+            IMAGE_TAG: ${{ steps.deploy-tag.outputs.tag }}
+          merge_env: true

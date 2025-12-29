@@ -1,0 +1,44 @@
+services:
+  cstrike-mysql:
+    image: mariadb:latest
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-change-me}
+      MYSQL_DATABASE: cstrike
+    volumes:
+      - db-data:/var/lib/mysql
+
+  cstrike-bencownia:
+    image: ghcr.io/bordeux/cstrike-bencownia:${IMAGE_TAG:-latest}
+    platform: linux/amd64
+    restart: unless-stopped
+    ports:
+      - "${SERVER_PORT:-27015}:${SERVER_PORT:-27015}/udp"
+      - "${SERVER_PORT:-27015}:${SERVER_PORT:-27015}/tcp"
+      - "${HTTP_SERVER_PORT:-8080}:${HTTP_SERVER_PORT:-8080}/tcp"
+    environment:
+      - SERVER_PORT=${SERVER_PORT:-27015}
+      - HTTP_SERVER_PORT=${HTTP_SERVER_PORT:-8080}
+      - SERVER_MAP=de_dust2
+      - SERVER_LAN=0
+      - SERVER_MAX_PLAYERS=${SERVER_MAX_PLAYERS:-32}
+      - SERVER_GAME=cstrike
+      - SERVER_PASSWORD=${RCON_PASSWORD:-change-me}
+      - DB_HOST=cstrike-mysql
+      - DB_PORT=3306
+      - DB_NAME=cstrike
+      - DB_USER=root
+      - DB_PASSWORD=${DB_PASSWORD:-change-me}
+      - CVAR_SV_DOWNLOADURL="http://4fun.bencownia.com:${HTTP_SERVER_PORT:-8080}"
+      - SERVER_ENVIRONMENT=${SERVER_ENVIRONMENT:-production}
+    stdin_open: true
+    tty: true
+    volumes:
+      - cstrike-logs:/opt/steam/hlds/cstrike/logs
+      - cstrike-logs:/opt/steam/hlds/cstrike/addons/amxmodx/logs
+    depends_on:
+      - cstrike-mysql
+
+volumes:
+  db-data:
+  cstrike-logs:

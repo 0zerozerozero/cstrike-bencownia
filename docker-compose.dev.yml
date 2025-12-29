@@ -1,0 +1,59 @@
+services:
+  cstrike-mysql:
+    image: mariadb:latest
+    container_name: mysql_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: change-me
+      MYSQL_DATABASE: cstrike
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./.docker/mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: cstrike-mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: change-me
+      PMA_ARBITRARY: 0
+    depends_on:
+      - cstrike-mysql
+
+
+  cstrike-bencownia:
+    image: ghcr.io/bordeux/cstrike-server:latest
+    container_name: cstrike-bencownia
+    platform: linux/amd64
+    restart: unless-stopped
+    ports:
+      - "27015:27015/udp"
+      - "27015:27015/tcp"
+      - "8080:8080/tcp"
+    volumes:
+      - ./cstrike:/opt/steam/hlds/cstrike_overwrites
+      - ./.docker/cstrike_workdir:/opt/steam/hlds/cstrike
+    environment:
+      - CPU_MHZ=2400 # enable this on MacOS M chips
+      - SERVER_PORT=27015
+      - SERVER_MAP=de_dust2
+      - SERVER_LAN=0
+      - SERVER_MAX_PLAYERS=20
+      - SERVER_GAME=cstrike
+      - SERVER_PASSWORD=change-me
+      - DB_HOST=cstrike-mysql
+      - DB_PORT=3306
+      - DB_NAME=cstrike
+      - DB_USER=root
+      - DB_PASSWORD=change-me
+      - SERVER_ENVIRONMENT=dev
+    stdin_open: true
+    tty: true
+    depends_on:
+      - cstrike-mysql

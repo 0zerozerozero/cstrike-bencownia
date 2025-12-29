@@ -1,0 +1,18 @@
+// TheDoctor0 - Base Pack
+
+// SQL configuration file
+// File location: $moddir/addons/amxmodx/configs/sql.cfg
+
+// *NOTE* Linux users may encounter problems if they specify "localhost" instead of "127.0.0.1"
+// We recommend using your server IP address instead of its name
+
+// *NOTE* amx_sql_type specifies the DEFAULT database type which admin.sma will use.
+
+amx_sql_host    "{{ getenv "DB_HOST" }}"
+amx_sql_port    "{{ getenv "DB_PORT" }}"
+amx_sql_user    "{{ getenv "DB_USER" }}"
+amx_sql_pass    "{{ getenv "DB_PASSWORD" }}"
+amx_sql_db      "{{ getenv "DB_NAME" }}"
+amx_sql_table   "amxx_admins"
+amx_sql_type    "mysql"
+amx_sql_timeout "60"

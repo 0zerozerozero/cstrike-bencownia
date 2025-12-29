@@ -1,0 +1,16 @@
+sv_minrate "25000"
+sv_maxrate "100000"
+sv_minupdaterate "60"
+sv_maxupdaterate "102"
+sys_ticrate 10000
+fps_max 101
+sv_contact "kontakt@bencownia.com"
+sv_region "3"
+sv_allowdownload 1
+sv_allowupload 1
+
+{{ $namePrefix := "" }}
+{{ if ne (getenv "SERVER_ENVIRONMENT") "production" }}
+    {{ $namePrefix = printf "[%s]" (getenv "SERVER_ENVIRONMENT") }}
+{{ end }}
+hostname "{{ $namePrefix }}[4FUN] 4fun.Bencownia.com"
