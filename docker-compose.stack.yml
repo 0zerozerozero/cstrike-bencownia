@@ -33,9 +33,9 @@ services:
       - SERVER_ENVIRONMENT=${SERVER_ENVIRONMENT:-production}
     stdin_open: true
     tty: true
+    user: "steam"
     volumes:
-      - cstrike-logs:/opt/steam/hlds/cstrike/logs
-      - cstrike-logs:/opt/steam/hlds/cstrike/addons/amxmodx/logs
+      - cstrike-logs:/var/log/
     depends_on:
       - cstrike-mysql
 
